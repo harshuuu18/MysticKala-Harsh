@@ -1,0 +1,78 @@
+<% include ./partials/header.ejs %>
+<link rel="stylesheet" href="/stylesheets/product.css">
+<script >
+    Cart = JSON.parse(localStorage.getItem('items'));
+    NCart = [...new Map(Cart.map(item => [item.productId, item])).values()]
+    console.log(NCart);
+</script>
+
+
+<div class="cart">
+
+    <div class="cart-left">
+        
+        
+        <Script>
+            NCart.map((i)=>{
+                var Quantity = Cart.filter((f)=>f.productId == i.productId).length;
+                
+                document.write(`<div class="cart-left-product">
+            <div class="cart-left-img">
+                <img src="https://picsum.photos/90" alt="product">
+                <span>Snow white product</span>
+            </div>
+            <div class="cart-left-btns">
+                <button>-</button>
+                ${Quantity}
+                <button id="Incre" onclick="AddCart()" >+</button>
+            </div>
+        </div>`)
+            })
+
+            var Cart = []
+    const Carth = document.getElementById("cart-adding")
+    
+    const AddCart = (e) =>{
+        
+        var val = this.event.target.value
+
+        if(localStorage.getItem('items')){
+        Cart = JSON.parse(localStorage.getItem('items'));
+        }
+        Cart.push({'productId' : val});
+        localStorage.setItem('items', JSON.stringify(Cart));
+        Carth.innerHTML = Cart.length    
+    }
+        </Script>
+    </div>
+    <div class="cart-right">
+        <div class="cart-right-in">    
+            <div class="cart-right-price">
+                <span>Product (1)</span>
+                <span>Rs 999 </span>
+            </div>
+            <div class="cart-right-price">
+                <span>Product (1)</span>
+                <span>Rs 999 </span>
+            </div>
+            <div class="cart-right-price">
+                <span>Shipping Cost</span>
+                <span>Rs 100 </span>
+            </div>  
+            <div class="cart-right-price">
+                <span>Total</span>
+                <span>Rs 109 </span>
+            </div>
+        </div>
+        <div class="cart-right-down">
+            <span> Total: 1099</span>
+            <button>Checkout</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<% include ./partials/footer.ejs %>

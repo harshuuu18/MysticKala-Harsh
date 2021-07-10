@@ -1,0 +1,63 @@
+<% include ./partials/header.ejs %>
+<link rel="stylesheet" href="/stylesheets/product.css">
+
+<div class="container">
+    <h1>
+        <%= Nheading %>
+    </h1>
+    
+    <div class="productGrid">
+        <% NData.map(function({name,type,img,price}) { %>
+            <% var ProductInfo = [name,type,img,price] %>
+                <div class="productcard">
+                    <div class="productImg"></div>
+                    <div class="text">
+                        <div class="inner-text">
+                            <span>
+                            <%= name %>     
+                            </span>
+                            <span>
+                               Rs <%= price %>     
+                            </span>
+                        </div>
+                        <button value="<%= ProductInfo %>" class="AddCart" 
+                        >Add to Cart</button>
+                    </div>
+                </div>
+         <% }) %> 
+</div>
+
+</div>
+<script  >
+    var Cart = []
+    const Carth = document.getElementById("cart-adding")
+    const AddCart = document.getElementsByClassName("AddCart")
+    AddCart.addEventListener('click', (e) =>{
+        
+        // var val = this.event.target.value
+        var val = e.target.value
+        console.log(val)
+        if(localStorage.getItem('items')){
+        Cart = JSON.parse(localStorage.getItem('items'));
+        }
+        Cart.push({val});
+        localStorage.setItem('items', JSON.stringify(Cart));
+        Carth.innerHTML = Cart.length    
+    
+    })
+    
+    /*
+    For removing products from cart
+
+    function removeProduct(productId){
+
+    let StoredProducts = JSON.parse(localStorage.getItem('items'));
+    let products = StoredProducts.filter(product => product.productId !== productId );
+    localStorage.setItem('items', JSON.stringify(products));
+    }
+    */
+
+    
+</script>
+
+<% include ./partials/footer.ejs %>

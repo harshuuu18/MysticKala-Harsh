@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div id="background">
+      <nav>
+        <div class="logo"><img src="/images/logo1.png" alt="" /></div>
+        <div class="links">
+          <a href="#whyus">WHY US</a>
+          <a href="#about">ABOUT</a>
+          <a href="#art">ART</a>
+          <a href="#products">SHOP NOW</a>
+          <a href="">LOGIN</a>
+        </div>
+      </nav>
+      <div class="socialMedia"></div>
+    </div>
+
+    <div id="products">
+      <h1>OUR PRODUCTS</h1>
+      <div id="container">  
+        <% Category.map(function(o) { %>
+          <div class="cards">
+            <a href="/c/<%= o.type %>">
+            <div class="cardImg">
+              
+            </div>
+              <h2><%= o.type %> </h2>
+            </a>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="whyus">
+      <h1>WHY US?</h1>
+      <p>
+        Why choose Mytic Kalaa? Each of our designs are specifically made to fit
+        your brand aesthetics. From colour pallets to fonts to designing is
+        based on each element is created with you , for you. We design, print,
+        and deliver to your doorstep.
+      </p>
+      <button>Know More About Us <i class="ri-arrow-down-s-line"></i></button>
+    </div>
+    <div id="about">
+      <p id="barGraph"><i class="ri-bar-chart-grouped-line"></i></p>
+      <div id="aboutContent">
+        <h1>ABOUT</h1>
+        <p>
+          "We are a design company that curates stationery as well as customized
+          packaging for a large audience. We started this company on premium
+          quality, affordable prizes and aesthetic deisgns to add a mystic
+          essence in your life."
+        </p>
+      </div>
+      <div id="line1"></div>
+    </div>
+
+    <div id="art">
+      <div id="artContent">
+        <a href=""><h1>ART</h1></a>
+        <h2><em>Click the above text for viewing some of our artworks!</em></h2>
+      </div>
+      <div id="artImage">
+        <img src="/images/photo19.jpg" alt="" />
+      </div>
+    </div>
+
+   
+
+    <div id="design"></div>
+    <footer>
+      <div class="socials">
+        <i class="ri-facebook-fill"></i>
+        <i class="ri-instagram-fill"></i>
+        <i class="ri-twitter-fill"></i>
+      </div>
+    </footer>
+  </body>
+</html>
